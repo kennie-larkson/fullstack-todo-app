@@ -24,9 +24,7 @@ export default function TodoItem(prop: { todo: TodoType }) {
             id="todo-item"
             onClick={() => {
               console.log("Checkbox clicked");
-              !clickedCheckbox
-                ? setClickedCheckbox(true)
-                : setClickedCheckbox(false);
+              setClickedCheckbox((prev) => !prev);
               console.log(clickedCheckbox);
             }}
           />
