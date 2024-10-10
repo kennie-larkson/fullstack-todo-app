@@ -1,4 +1,3 @@
-import Image from "next/image";
 import TodoItemList from "./todoItemList";
 
 export default function Home() {
