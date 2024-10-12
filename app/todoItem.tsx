@@ -12,7 +12,6 @@ export type TodoType = {
 export default function TodoItem(prop: { todo: TodoType }) {
   const [clickedTrash, setClickedTrash] = React.useState(false);
   const [clickedCheckbox, setClickedCheckbox] = React.useState<boolean>(false);
-  console.log("Checkbox clicked", clickedCheckbox);
 
   return (
     <>
@@ -25,7 +24,6 @@ export default function TodoItem(prop: { todo: TodoType }) {
             onClick={() => {
               console.log("Checkbox clicked");
               setClickedCheckbox((prev) => !prev);
-              console.log(clickedCheckbox);
             }}
           />
         </div>
