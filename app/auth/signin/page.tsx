@@ -1,3 +1,3 @@
 export default function AuthSignIn() {
-  return <>This is where you'll enter your auth credentials</>;
+  return <>This is where you will enter your auth credentials</>;
 }

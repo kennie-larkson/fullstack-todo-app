@@ -1,11 +1,4 @@
-import TodoItemList from "./todoItemList";
-import SearchInput from "./searchInput";
-import SearchButton from "./searchButton";
-import {
-  FolderIcon,
-  DocumentIcon,
-  PencilIcon,
-} from "@heroicons/react/24/outline";
+import { PencilIcon } from "@heroicons/react/24/outline";
 
 export default function Home() {
   return (
