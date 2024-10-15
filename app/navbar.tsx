@@ -3,7 +3,8 @@
 import React from "react";
 
 export default function Navbar() {
-  const [isLoggedin, setIsLoggedIn] = React.useState<boolean>(true);
+  const [isLoggedin, setIsLoggedIn] = React.useState<boolean>(false);
+
   return (
     <div className="flex items-center justify-center md:justify-around space-x-4  py-3 md:px-12 bg-blue-500 border-0 sticky top-0 z-50 ">
       <div className="flex">
@@ -19,6 +20,9 @@ export default function Navbar() {
         className={` ${
           isLoggedin ? "hidden" : "flex"
         } cursor-pointer md:hover:font-semibold`}
+        onClick={() => {
+          setIsLoggedIn((prev) => !prev);
+        }}
       >
         <p>Signup</p>
       </div>
@@ -26,6 +30,9 @@ export default function Navbar() {
         className={` ${
           isLoggedin ? "flex" : "hidden"
         } cursor-pointer md:hover:font-semibold`}
+        onClick={() => {
+          setIsLoggedIn((prev) => !prev);
+        }}
       >
         <p>Sign Out</p>
       </div>
