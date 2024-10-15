@@ -1,5 +1,6 @@
 import TodoItem from "./todoItem";
 import { fetchTodos } from "./lib/data";
+import { Todo } from "./lib/definitions";
 
 export type TodoType = {
   id: string;
@@ -7,6 +8,8 @@ export type TodoType = {
   status: boolean;
   createdAt: Date;
 };
+
+export type OmitIdFromTodo = Omit<Todo, "id">;
 
 /* export const todoItems: TodoType[] = [
   {
@@ -39,9 +42,12 @@ export default async function TodoItemList() {
   const todos = await fetchTodos();
 
   return (
-    <div className="flex flex-col w-full p-2 md:p-4 space-y-3 md:space-y-6">
+    <div className="flex flex-col w-full px-2 pt-3 md:p-12 space-y-3 md:space-y-6 bg-blue-500">
       {todos.map((todo) => (
-        <TodoItem key={todo.id} todo={todo} />
+        <div className="flex flex-col space-y-1" key={todo.id}>
+          <TodoItem todo={todo} />
+          <hr className="size-4 w-full" />
+        </div>
       ))}
     </div>
   );

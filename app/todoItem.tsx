@@ -15,8 +15,8 @@ export default function TodoItem(prop: { todo: TodoType }) {
 
   return (
     <>
-      <div className="flex w-full space-x-2 md:space-x-4 text-black">
-        <div className={`flex`}>
+      <div className="flex w-full justify-between md:space-x-4 text-black">
+        <div className={`flex px-2`}>
           <input
             type="checkbox"
             name="todo-item"
@@ -28,34 +28,36 @@ export default function TodoItem(prop: { todo: TodoType }) {
           />
         </div>
         <div
-          className={`flex text-sm md:text-xl font-normal md:font-medium font-sans in" ${
+          className={`flex items-center text-sm text-white w-full md:text-xl font-normal md:font-medium font-sans" ${
             clickedTrash ? "line-through text-red-600" : ""
           } ${clickedCheckbox ? "p-4" : ""}`}
         >
           {prop.todo.item}
         </div>
-        {clickedTrash ? (
-          <div className={`flex ${clickedCheckbox ? "p-4" : ""}`}>
-            <CheckIcon width={20} height={20} color="green" />
+        <div className="flex items-center bg-white space-x-3 p-2 rounded-md">
+          {clickedTrash ? (
+            <div className={`flex  `}>
+              <CheckIcon width={20} height={20} color="green" />
+            </div>
+          ) : (
+            ""
+          )}
+          <div className={`flex cursor-pointer `}>
+            <TrashIcon
+              width={20}
+              height={20}
+              color="red"
+              onClick={() => {
+                if (!clickedTrash) {
+                  console.log("Trash can");
+                  setClickedTrash(true);
+                }
+              }}
+              className={` ${
+                clickedTrash ? "cursor-not-allowed opacity-50" : ""
+              } `}
+            />
           </div>
-        ) : (
-          ""
-        )}
-        <div className={`flex ${clickedCheckbox ? "p-4" : ""}`}>
-          <TrashIcon
-            width={20}
-            height={20}
-            color="red"
-            onClick={() => {
-              if (!clickedTrash) {
-                console.log("Trash can");
-                setClickedTrash(true);
-              }
-            }}
-            className={`${
-              clickedTrash ? "cursor-not-allowed opacity-50" : ""
-            } `}
-          />
         </div>
       </div>
     </>
